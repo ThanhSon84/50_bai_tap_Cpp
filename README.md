@@ -1,2 +1,2 @@
-# 50-b-i-code-C-
+# 50-bai-tap-C++
 PTIT
