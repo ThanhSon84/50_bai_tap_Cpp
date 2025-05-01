@@ -1,0 +1,3 @@
+Kiểm tra lại định dạng ngày/tháng/năm
+Kiểm tra lại format nhập dãy số mã số thuế
+Dùng stringstream tách delimiter (định dạng char)
