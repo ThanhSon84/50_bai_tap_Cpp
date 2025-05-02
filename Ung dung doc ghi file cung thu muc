@@ -1,0 +1,5 @@
+Bai tap 24
+Dinh nghia file source ifstream("Ten file",ios::binary);//doc file
+Dinh nghia file dest ofstream("Ten file",ios::binary);//ghi file-> bo het noi dung cu, ghi de toan bo noi dung moi
+
+Ung dung lam file backup du lieu
