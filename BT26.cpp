@@ -35,7 +35,7 @@ void merge(vector<int>& a)
 			}
 			else
 			{
-				a[right-1]=a[right];
+				a[right-1]+=a[right];
 				right--;
 			}
 			count++;
