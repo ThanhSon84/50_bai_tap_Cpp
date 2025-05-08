@@ -1,63 +1,53 @@
-//BT28.cpp
-#include<iostream>
-#include<cmath>
-#include<vector>
-#include<string>
-#include<sstream>
+// BT28.cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm> // for std::swap
 
 using namespace std;
 
-void hoanvi(vector<int>& v)
-{
-	int N=v.size();
-	cout<<"v.size()"<<N<<endl;
-	int check=0;
-	//int index=0;
-	for(int i=N-2;i>=0&&!check;i--)//dung dieu kien check thoat for
-	{
-		for(int j=i+1;j<N;j++)
-		{
-			if(v[i]>v[j])
-			{
-				swap(v[i],v[j]);
-				check=1;
-				break;
-			}
-		}
-	}
-	if(check)
-	{
-		for(int& it:v)
-		{
-			cout<<it;
-		}
-		cout<<endl;
-	}
-	else
-	{
-		cout<<-1<<endl;
-	}
+// Function to find and print the next permutation in reverse lexicographical order
+void hoanvi(vector<int>& v) {
+    int N = v.size();
+    bool swapped = false;
 
+    for (int i = N - 2; i >= 0 && !swapped; --i) {
+        for (int j = i + 1; j < N; ++j) {
+            if (v[i] > v[j]) {
+                swap(v[i], v[j]);
+                swapped = true;
+                break;
+            }
+        }
+    }
+
+    if (swapped) {
+        for (int num : v) {
+            cout << num;
+        }
+        cout << endl;
+    } else {
+        cout << -1 << endl;
+    }
 }
 
-int main()
-{
-	int test; cin>>test;
-	while(test--)
-	{
-		string s;
-		cin.ignore();
-		std::getline(std::cin,s);
-		//nhap vao tu string vao vector
-		vector<int> v;
-		//stringstream ss(s);
-		//int element;
-		for(char element: s)
-		{
-			v.push_back(element-'0');
-		}
+int main() {
+    int testCases;
+    cin >> testCases;
+    cin.ignore(); // Ignore the newline after reading testCases
 
-		hoanvi(v);
-	}
-	return 0;
+    while (testCases--) {
+        string input;
+        getline(cin, input);
+
+        // Convert string input into a vector of integers
+        vector<int> v;
+        for (char ch : input) {
+            v.push_back(ch - '0');
+        }
+
+        hoanvi(v);
+    }
+
+    return 0;
 }
