@@ -2,7 +2,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-#include<algorithm>
+
 
 using namespace std;
 
@@ -29,6 +29,11 @@ void output_vect(vector<int>& vec, const int& n)
 		cout<<vec[left]<<" "<<vec[right]<<" ";
 		left++;
 		right--;
+	}
+	if(left==right)//truong hop bi sot khong in
+	{
+		cout<<vec[left];
+
 	}
 	cout<<endl;
 }
