@@ -30,7 +30,7 @@ int main()
 			}
 		}
 		sort(text.begin(),text.end());
-		text+=(sum+'0');
+		text+=to_string(sum);//chuyen tong thanh chuoi truoc khi noi
 		for(char t:text)
 		{
 			cout<<t;
