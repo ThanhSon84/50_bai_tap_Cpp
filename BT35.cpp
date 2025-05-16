@@ -1,17 +1,19 @@
-//BTnn.cpp
+//BT34.cpp
 #include<iostream>
 #include<sstream>
 #include<string>
 #include<iomanip>
+#include<cctype>
 
 using namespace std;
 
 struct Student
 {
-	string Id="AAAAA";
+	string Id="B20DCCN";
 	string Full_name;
 	string Class;
-	string Date_of_Birth;;
+	string Date_of_Birth;
+	double GPA;
 };
 
 void input_info(struct Student& sv)
@@ -20,6 +22,7 @@ void input_info(struct Student& sv)
 	getline(cin,sv.Full_name);
 	getline(cin,sv.Class);
 	getline(cin,sv.Date_of_Birth);
+	cin>>sv.GPA;
 }
 
 bool is_Leap_year(int Year)
@@ -80,6 +83,30 @@ string right_format_Date(const string& Date)
 
 }
 
+string format_Name(string& Name)
+{
+	int length_of_Name=Name.size();
+	if(length_of_Name>30) Name=Name.substr(0,30);
+	stringstream ss(Name);
+	string formated_Name;
+	string word;
+	while(ss>>word)
+	{
+		word[0]=toupper(word[0]);
+		for(size_t i=1;i<word.size();i++)//size_t tuong tu int nhung ko co dau
+			word[i]=tolower(word[i]);
+		formated_Name+=word+" ";
+	}
+	//xoa dau cach cuoi do ham tren chay xong thua 1 khoang " "
+	if(!formated_Name.empty())
+	{
+		formated_Name.pop_back();
+	}
+
+	return formated_Name;
+
+}
+
 int main()
 {
 	int testcases;
@@ -94,7 +121,8 @@ int main()
 		input_info(sv1);
 		string DoB=right_format_Date(sv1.Date_of_Birth);
 		if(!is_right_format_Date(DoB)) DoB="N/A";
-		cout<<sv1.Id<<stt<<" "<<sv1.Full_name<<" "<<sv1.Class<<" "<<DoB<<endl;
+		string Student_Name=format_Name(sv1.Full_name);
+		cout<<sv1.Id<<stt<<" "<<Student_Name<<" "<<sv1.Class<<" "<<DoB<<" "<<fixed<<setprecision(2)<<sv1.GPA<<endl;
 
 	}
 }
