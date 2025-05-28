@@ -46,10 +46,11 @@ pair<string,string> xac_dinh_Nganh(const string& MSSV)
 				{
 					Nganh.second="Vien thong";
 				}
-			else 
+			else if(Ma_Nganh=="DCDT")
 				{
 					Nganh.second="Dien tu";
 				}
+			else Nganh.second="Khong co ma nganh tuong ung";
 		}
 	return Nganh;
 }
